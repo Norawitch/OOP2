@@ -170,18 +170,3 @@ document.getElementById('add-to-cart').addEventListener('click', function() {
         addToCart(tempCustomerId, accessoryId);
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
