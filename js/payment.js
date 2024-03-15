@@ -62,6 +62,7 @@ console.log("TempOrder: ",tempOrderId)
 // -------------------------------------------------------
 
 let current_order;
+let total;
 function showConfirmedOrder() {
     fetch("http://127.0.0.1:8000/search_order_by_id", {
         method: 'POST',
@@ -77,7 +78,8 @@ function showConfirmedOrder() {
         console.log('Order:', data);
         // Handle shopping cart data as needed
         // showOrder(data);
-        current_order = data;
+        current_order = data.order_id;
+        total = data.total
     })
     .catch(error => {
         console.error('Order Error:', error);
@@ -113,8 +115,9 @@ function getAccInfo() {
 document.addEventListener('DOMContentLoaded', function() {
     getAccInfo();
     showConfirmedOrder();
-    selectedValue = 'none'
-    console.log("Selected value: ", selectedValue)
+    selectedValue = 'none'; // Initialize selectedValue
+    console.log("Selected value: ", selectedValue);
+
     const selectElement = document.getElementById('payment_type'); // Get the select element by its ID
     selectElement.addEventListener('change', function() {
         selectedValue = selectElement.value; // Update selectedValue when payment type changes
@@ -144,21 +147,23 @@ function payment(card_number, exp_date, cvv, total){
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            customer_id: `${tempCustomerId}`,
-            payment_type: `${selectedValue}`,
-            payment_detail: JSON.stringify({
-                card_number: `${card_number}`,
-                expiration_date: `${exp_date}`,
-                CVV: `${cvv}`
-            }),
-            order_id: tempOrderId,
-            amount: total
+            customer_id: tempCustomerId,
+            payment_type: selectedValue,
+            payment_detail: {
+                card_number: card_number,
+                expiration_date: exp_date,
+                CVV: cvv
+            },
+            amount: total,
+            order_id: tempOrderId
+            
         }),
     })
     .then(response => response.json())
     .then(data => {
-        
+        console.log("Payyyyyyyyy:", data)
         alert(`Your Order ${tempOrderId} has been paid by ${selectedValue}`)
+        window.location.href = 'order.html'
     })
     .catch(error => {
         console.error('Order Error:', error);
@@ -170,7 +175,8 @@ function payment(card_number, exp_date, cvv, total){
 //     alert(`Your Order ${tempOrderId} has been paid by ${selectedValue}`)
 // }
 document.getElementById('pay_now_button').addEventListener('click', function() {
-    const total = current_order.total
+    
+    console.log("Variable pay:", total)
     let card_number = ""
     let exp_date = ""
     let cvv = ""
@@ -186,12 +192,7 @@ document.getElementById('pay_now_button').addEventListener('click', function() {
             exp_date = document.getElementById('exp_date').value
             cvv = document.getElementById('CVV').value
             
-            console.log("Variable pay:", card_number)
-            console.log("Variable pay:", exp_date)
-            console.log("Variable pay:", cvv)
-            console.log("Variable pay:", total)
-            // payment(card_number, exp_date, cvv, total);
-            payment(card_number="12", exp_date="2024-03-18", cvv="18", total);
+            payment(card_number, exp_date, cvv, total);
         }else{
             alert('Plese complete information before submit')
         }
