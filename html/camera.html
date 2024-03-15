@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📷 camera 📷</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/camera.css">
+
+    <style>
+        .container {
+            display: flex;
+            margin: 0 auto; /* Center the container */
+            max-width: 1200px; /* Set a maximum width for the container */
+            gap: 40px; /* Add a gap between the columns */
+        }
+        .column {
+            flex: 1; /* Take up available space */
+        }
+        .card-container {
+            margin-bottom: 20px; /* Add some space between each card */
+        }
+        .checkout {
+            position: fixed;
+            top: 450px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <nav>
+        <div class="top-left">
+            <a href="https://shorturl.at/ozLS6">
+                <img src="../image/gray-pin.svg" height="18" alt="สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง">สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+            </a> &nbsp;
+            <a href="https://line.me/ti/p/srMrHo_K_a">
+                <img src="../image/gray-line.svg" height="18" alt="@THAMMERA">@THAMMERA
+            </a>
+        </div>
+
+        <div class="telephone">
+            <a href="tel:062-279xxxx">062-279XXXX</a>
+        </div>
+    </nav>
+
+    <div class="box2">
+        <div class="logo">
+            <a href="main.html"><img src="../image/THAM.png" height="64" alt="Logo"></a>
+        </div>
+
+        <div id="head" class="head_info">
+            <div class="rent_method">
+                <a href="#rentmethod">วิธีเช่า</a>
+            </div> &nbsp; &nbsp;
+
+            <div class="contact">
+                <a href="#contact">ติดต่อเรา</a>
+            </div> &nbsp; &nbsp;
+
+            <div class="search">
+                <img src="../image/magnify.svg" class="search-icon" alt="Search Icon">
+                <input type="text" placeholder=" ค้นหาสินค้า">
+            </div> &nbsp; &nbsp;
+
+            <div class="member" style="display: flex;" id="home-account">
+                <a id="member-icon" href="javascript:void(0)">
+                    <img src="../image/member.svg" height="30" alt="Member">
+                </a>
+                <div class="logout" id="logout" style="display: none; z-index: 9999;">
+                    <button id="logout-button" style="margin-left: 10px; padding:5px; margin-top:-7px; background-color:#fff; border:none; border-radius:10px; box-shadow: 0 0 10px rgb(0, 0, 0, 0.5);">
+                        <a href="main.html" style="font-family: 'Prompt'; font-size:20px; text-decoration:none; color: red;">LOGOUT</a>
+                    </button>
+                </div>
+                
+            </div> &nbsp; &nbsp;
+
+            <div id ="cart" class="cart">
+                <a href="javascript:void(0)" onclick="openPopupCart()"><img src="../image/cart.svg" height="30" alt="Cart"></a>
+                <div class="popupCart" id="popupCart">
+                    <div class="cartHeader">
+                        <p>ตะกร้าสินค้า</p>
+                    </div>
+                    <div class="cartItems">
+                        <div class="info">
+                            <p class="name">สินค้า</p>
+                            <p class="id">รหัสสินค้า</p>
+                            <p class="price">ค่าเช่าสินค้า</p>
+                        </div>
+                        <div id="accessory"></div>
+                    </div>
+
+
+                    <div class="checkout" style="bottom: 2px;">
+                        <div class="total" style="bottom: 40px;">
+                            <div class="calendar">
+                                <p>วันเวลาที่ต้องการเช่า</p>
+                                <input type="date" name="date-start"> - <input type="date" name="date-end">
+                            </div>
+                            <div class="total-price">
+                                <p id="total-price" class="total-price">รวมค่าเช่า : 999 ฿</p>
+                            </div>
+                        </div>
+                        <div> 
+                            <button onclick="closePopupCart()">ปิดหน้าต่าง</button>&nbsp;&nbsp;&nbsp;
+                            <button>ทำรายการจอง</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="customer-name" style="margin-left: 50px;">
+                <span style="font-style: oblique;"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="box3">
+        <div class="camera">
+            <a href="camera.html">กล้อง</a>
+        </div>
+        <div class="len">
+            <a href="len.html">เลนส์</a>
+        </div>
+        <div class="tripod">
+            <a href="tripod.html">ขาตั้งกล้อง</a>
+        </div>
+        <div class="battery">
+            <a href="battery.html">แบตเตอรี่</a>
+        </div>
+    </div>
+    
+    <div class="box4">
+        <div class="content">
+            <h1>กรุณาจองคิวล่วงหน้าผ่านเว็บเท่านั้น ไม่รับ Walk-In ครับ</h1>
+        </div>
+    </div>
+
+    <div class="box5">
+        <div class="info">
+            <h1>ให้เช่ากล้องถ่ายรูป</h1>
+            <p>ให้เช่ากล้องถ่ายรูป ถ่ายวีดีโอ สำหรับถ่ายงานหรือท่องเที่ยว</p>
+        </div>
+    </div>
+    <hr class="line1">
+    <div class="info2">
+        <p>Brands</p>
+    </div>
+    <a href="#" style="display: inline-block; width: 65px; height: 35px; text-align: center; font-family: 'Prompt'; font-size: 20px; background-color: rgba(2, 2, 2, 0.104); line-height: 35px; flex-direction: column; justify-content: center; margin-left: 35.85%; margin-top:8px; text-decoration: none; color:black;">Sony</a>
+    <a href="#" style="display: inline-block; width: 75px; height: 35px; text-align: center; font-family: 'Prompt'; font-size: 20px; background-color: rgba(2, 2, 2, 0.104); line-height: 35px; flex-direction: column; justify-content: center; margin-left: 30px; margin-top:8px; text-decoration: none; color:black;">Canon</a>
+    <a href="#" style="display: inline-block; width: 85px; height: 35px; text-align: center; font-family: 'Prompt'; font-size: 20px; background-color: rgba(2, 2, 2, 0.104); line-height: 35px; flex-direction: column; justify-content: center; margin-left: 30px; margin-top:8px; text-decoration: none; color:black;">Fujifilm</a>
+    <a href="#" style="display: inline-block; width: 96px; height: 35px; text-align: center; font-family: 'Prompt'; font-size: 20px; background-color: rgba(2, 2, 2, 0.104); line-height: 35px; flex-direction: column; justify-content: center; margin-left: 30px; margin-top:8px; text-decoration: none; color:black;">Manfrotto</a>
+    <a href="#" style="display: inline-block; width: 73px; height: 35px; text-align: center; font-family: 'Prompt'; font-size: 20px; background-color: rgba(2, 2, 2, 0.104); line-height: 35px; flex-direction: column; justify-content: center; margin-left: 30px; margin-top:8px; text-decoration: none; color:black;">Zomei</a>
+    <hr class="line2">
+
+    <!-- <div class="box6">
+        <a class="c1" href="product/canon-EOS R10 (Body).html">
+            <img src="../image/camera/001.png" alt="Canon EOS R10">
+                <h1>Canon EOS R10 (Body)</h1>
+                <h2>ค่าเช่าราคา 500 บาท/วัน</h2><br>
+                <p>กล้อง CMOS APS-C ความละเอียด 24.2 ล้านพิกเซล<br>ถ่ายภาพต่อเนื่องได้สูงถึง 23 เฟรมต่อวินาที</p>
+        </a>
+        <a class="c2" href="product/Canon EOS M50.html">
+            <img src="../image/camera/002.png" alt="Canon EOS M50">
+                <h1>Canon EOS M50</h1>
+                <h2>ค่าเช่าราคา 400 บาท/วัน</h2><br>
+                <p>กล้อง Mirrorless 24.2 ล้าน Pixel พร้อมจอ Touch Screen <br>VDO4k จอพับได้ Sefie ดี skintone สวย</p>
+        </a>
+        <a class="c3" href="product/Fujifilm X-T20.html">
+            <img src="../image/camera/003.png" alt="Fujifilm X-T20">
+                <h1>Fujifilm X-T20</h1>
+                <h2>ค่าเช่าราคา 350 บาท/วัน</h2><br>
+                <p>กล้อง Mirrorless 24.2 ล้าน pixel Sensor ขนาด APS-C<br>ถ่าย VDO 4K 30FPS พร้อมจอพับได้แบบ Touch Screen</p>
+        </a>
+    </div> -->
+
+
+    <div class="container">
+        <div id="image-container" class="c1">
+                <div id="card-container" class="card-body" style="grid-row: span;">
+                    <h1 class="card-title" id="accessory-title" style="font-size: 60px;"></h1>
+                    <h2 class="card-subtitle mb-2 text-muted" id="accessory-subtitle"></h2>
+                    <p class="card-text" id="accessory-description" style="font-size: 25px;"></p>
+                </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div id="column1" class="column"></div>
+        <div id="column2" class="column"></div>
+    </div>
+
+    <div class="box9">
+        <h1>ขั้นตอนในการเช่าอุปกรณ์ถ่ายภาพ</h1>
+        <h2>รายละเอียดขั้นตอนการจอง และหลักประกันในการเช่า</h2>
+    </div><br>
+
+    <div class="box10">
+        <div class="method">
+            <h1>1</h1>
+            <h3>เลือกวันยืม-คืน</h3>
+            <p>ในหน้าอุปกรณ์ที่ต้องการ</p>
+            <p>ระบุวันเวลาที่ต้องการยืม-คืน</p>
+            <p>จะปรากฎค่าเช่า และค่าประกัน</p>
+        </div>
+        <div class="method">
+            <h1>2</h1>
+            <h3>จองผ่านเว็บไซต์</h3>
+            <p>เลือกรายการอุปกรณ์</p>
+            <p>และวันเวลาที่ต้องการยืม</p>
+            <p>แล้วทำการจองผ่านระบบ</p>
+        </div>
+        <div class="method">
+            <h1>3</h1>
+            <h3>ยืนยันและรับอุปกรณ์</h3>
+            <p>รอเจ้าหน้าที่ติดต่อกลับ</p>
+            <p>เพื่อยืนยันการจอง</p>
+            <p>รับอุปกรณ์ตามวันเวลานัด</p>
+        </div>
+    </div><br>
+
+    <div class="box11">
+        <h1>ติดต่อสอบถามข้อมูล</h1><br>
+        <button><a href="tel:062279XXXX">โทร 062-279XXXX</a></button><br><br>
+        <div class="contact">
+            <a href="https://shorturl.at/ozLS6">
+                <img src="../image/white-pin.svg" height="18" alt="สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง">สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+            </a> &nbsp; &nbsp;
+            <a href="https://line.me/ti/p/srMrHo_K_a">
+                <img src="../image/white-line.svg" height="18" alt="@THAMMERA">@THAMMERA
+            </a>
+        </div>
+    </div>
+
+    <div class="box12">
+        <div class="copyright">
+            COPYRIGHT 2024 <span class="copyright-symbol">©</span> THAMMERA.COM
+          </div>          
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="../js/script.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        fetch('http://localhost:8000/', {
+    method: 'GET',
+}).then(response => response.json()).then(data => {
+    const column1 = document.getElementById('column1');
+    const column2 = document.getElementById('column2');
+
+    // Iterate over the fetched data and populate columns
+    data.images.forEach((imageUrl, index) => {
+        const accessoryId = imageUrl.substring(46, 49); // Assuming the URL format is consistent
+        const imgElement = document.createElement('img');
+        imgElement.src = imageUrl.substring(12);
+
+        // Create anchor element
+        const anchorElement = document.createElement('a');
+        anchorElement.href = `accessory.html?accessory_id=${accessoryId}`;
+        anchorElement.appendChild(imgElement); // Append the imgElement to the anchorElement
+
+        // Fetch accessory details and create card elements
+        fetch(`http://localhost:8000/accessory/${accessoryId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch accessory details');
+                }
+                return response.json();
+            })
+            .then(accessory => {
+                // Create card elements
+                const cardContainer = document.createElement('div');
+                const cardTitle = document.createElement('h1');
+                const cardSubtitle = document.createElement('h2');
+                const cardDescription = document.createElement('p');
+
+                // Populate card elements with accessory information
+                cardContainer.className = 'card-container';
+                cardContainer.style.display = "grid";
+
+                // cardTitle.style.padding = "0.2rem";
+                cardTitle.textContent = accessory.name;
+                cardTitle.style.fontSize = "40px";
+                cardTitle.style.paddingTop = "-20px";
+                cardSubtitle.textContent = `ค่าเช่าราคา ${accessory.price} บาท/วัน`;
+                cardSubtitle.style.fontSize = "30px";
+                cardDescription.textContent = accessory.info;
+                cardDescription.style.fontSize = "20px";
+
+                // Append card elements to appropriate column
+                const column = index % 2 === 0 ? column1 : column2;
+                cardContainer.appendChild(anchorElement); // Append the anchorElement to the cardContainer
+                cardContainer.appendChild(cardTitle);
+                cardContainer.appendChild(cardSubtitle);
+                cardContainer.appendChild(cardDescription);
+                column.appendChild(cardContainer);
+            })
+            .catch(error => {
+                console.error('Error fetching accessory details:', error);
+            });
+    });
+});
+
+    </script>
+</body>
+</html>
