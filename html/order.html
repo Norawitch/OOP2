@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📷 camera 📷</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/contract.css">
+
+    <style>
+        .checkout {
+            position: fixed;
+            top: 450px;
+        }
+        p {
+            font-family: 'Prompt';
+        }
+        ul {
+            font-family: 'Prompt';
+        }
+        .agree_butt {
+            padding: 5px;
+            width: 120px;
+            background-color: rgb(5, 155, 255);
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
+            font-family: Prompt;
+            font-size: 20px;
+            color: #fff;
+            transition: all 0.3s ease; /* Add transition for smooth hover effect */
+        }
+        .agree_butt:hover {
+            background-color: #006bad;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); /* Change box shadow when hovering */
+            transform: translateY(-1px); /* Move button slightly up when hovering */
+        }
+        .not_agree_butt {
+            margin-left: 310px;
+            padding: 5px;
+            width: 120px;
+            background-color: rgb(255, 63, 63);
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            box-shadow: 4px 4px 5px rgb(0, 0, 0, 0.5);
+            font-family: 'Prompt';
+            font-size: 20px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        .not_agree_butt:hover {
+            background-color: #a61818; /* Change background color when hovering */
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); /* Change box shadow when hovering */
+            transform: translateY(-1px); /* Move button slightly up when hovering */
+        }
+        .pay_order {
+            padding: 10px;
+            width: 120px;
+            background-color: rgb(5, 155, 255);
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
+            font-family: Prompt;
+            font-size: 20px;
+            color: #fff;
+            transition: all 0.3s ease; /* Add transition for smooth hover effect */
+        }
+        .pay_order:hover {
+            background-color: #006bad;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); /* Change box shadow when hovering */
+            transform: translateY(-1px); /* Move button slightly up when hovering */
+        }
+        .cancel_order {
+            margin-left: 0.5rem;
+            padding: 10px;
+            width: 120px;
+            background-color: rgb(255, 63, 63);
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            box-shadow: 4px 4px 5px rgb(0, 0, 0, 0.5);
+            font-family: 'Prompt';
+            font-size: 20px;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        .cancel_order:hover {
+            background-color: #a61818; /* Change background color when hovering */
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); /* Change box shadow when hovering */
+            transform: translateY(-1px); /* Move button slightly up when hovering */
+        }
+        .undis_order {
+            height: 40px;
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            background-color: rgb(5, 155, 255);
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            color: #fff;
+            /* box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.5); */
+            font-family: 'Prompt';
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        .undis_order:hover {
+            background-color: #006bad;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); /* Change box shadow when hovering */
+            transform: translateY(-1px); /* Move button slightly up when hovering */
+        }
+        .paid_order {
+            height: 40px;
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            background-color: rgb(5, 155, 255);
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            color: #fff;
+            /* box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.5); */
+            font-family: 'Prompt';
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        .paid_order:hover {
+            background-color: #006bad;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); /* Change box shadow when hovering */
+            transform: translateY(-1px); /* Move button slightly up when hovering */
+        }
+        .confirmed_order {
+            height: 40px;
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            background-color: rgb(5, 155, 255);
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            color: #fff;
+            /* box-shadow: 2px 2px 5px rgb(0, 0, 0, 0.5); */
+            font-family: 'Prompt';
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        .confirmed_order:hover {
+            background-color: #006bad;
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); /* Change box shadow when hovering */
+            transform: translateY(-1px); /* Move button slightly up when hovering */
+        }
+        .hidden {
+            display: none;
+        }
+
+        /* CSS to style the popup container */
+        .popupContainer {
+            display: none; /* Initially hide the popup */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            z-index: 9999; /* Ensure the popup appears above other content */
+        }
+
+        /* CSS to style the popup content */
+        .popupContent {
+            background-color: white;
+            width: 60%;
+            max-width: 600px;
+            margin: 100px auto; /* Center the popup vertically and horizontally */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a shadow effect */
+        }
+        .popup-animation {
+            transition: opacity 0.3s ease-in-out; /* Customize the animation duration and easing */
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <nav>
+        <div class="top-left">
+            <a href="https://shorturl.at/ozLS6">
+                <img src="../image/gray-pin.svg" height="18" alt="สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง">สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+            </a> &nbsp;
+            <a href="https://line.me/ti/p/srMrHo_K_a">
+                <img src="../image/gray-line.svg" height="18" alt="@THAMMERA">@THAMMERA
+            </a>
+        </div>
+
+        <div class="telephone">
+            <a href="tel:062-279xxxx">062-279XXXX</a>
+        </div>
+    </nav>
+
+    <div class="box2">
+        <div class="logo">
+            <a href="main.html"><img src="../image/THAM.png" height="64" alt="Logo"></a>
+        </div>
+
+        <div id="head" class="head_info">
+            <div class="rent_method">
+                <a href="#rentmethod">วิธีเช่า</a>
+            </div> &nbsp; &nbsp;
+
+            <div class="contact">
+                <a href="#contact">ติดต่อเรา</a>
+            </div> &nbsp; &nbsp;
+
+            <div class="search">
+                <img src="../image/magnify.svg" class="search-icon" alt="Search Icon">
+                <input type="text" placeholder=" ค้นหาสินค้า">
+            </div> &nbsp; &nbsp;
+
+            <div class="member" style="display: flex;" id="home-account">
+                <a id="member-icon" href="javascript:void(0)">
+                    <img src="../image/member.svg" height="30" alt="Member">
+                </a>
+                <div class="logout" id="logout" style="display: none; z-index: 9999;">
+                    <button id="logout-button" style="margin-left: 10px; padding:5px; margin-top:-7px; background-color:#fff; border:none; border-radius:10px; box-shadow: 0 0 10px rgb(0, 0, 0, 0.5);">
+                        <a href="main.html" style="font-family: 'Prompt'; font-size:20px; text-decoration:none; color: red;">LOGOUT</a>
+                    </button>
+                </div>
+            </div> &nbsp; &nbsp;
+
+            
+            <div id="cart" class="cart">
+                <a href="javascript:void(0)" onclick="openPopupCart()"><img src="../image/cart.svg" height="30" alt="Cart" id="cart"></a>
+                <div class="popupCart" id="popupCart">
+                    <div class="cartHeader">
+                        <p>ตะกร้าสินค้า</p>
+                    </div>
+                    <div class="cartItems">
+                        <div class="info" style="display: grid; grid-template-columns: repeat(3, 1fr); ">
+                            <p class="name">สินค้า</p>
+                            <p class="id">รหัสสินค้า</p>
+                            <p class="price">ค่าเช่าสินค้า</p>
+                        </div>
+                        <div id="accessory"></div>
+                    </div>
+                    
+                    <!-- ------------------------------------------------------------------- -->
+
+                    <div class="total-price">
+                        <p class="total-price" style="margin-right: 200px;"></p>
+                    </div>
+                    
+                    <div class="checkout" style="bottom: 2px;">
+                        <div class="total" style="bottom: 40px;">
+                            <div class="calendar">
+                                <p>วันเวลาที่ต้องการเช่า</p>
+                                <input type="date" id="date-start"> - <input type="date" id="date-end">
+                            </div>
+                        </div>
+                        <div> 
+                            <button id="close_cart" onclick="closePopupCart()">ปิดหน้าต่าง</button>&nbsp;&nbsp;&nbsp;
+                            <button id="make-order">ทำรายการจอง</button>
+                        </div>
+                        
+                    </div>
+                    <!-- ------------------------------------------------------------------- -->
+                </div>
+                
+            
+            </div>
+            <div id="customer-name" style="margin-left: 50px;">
+                <span style="font-style: oblique;"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="box3">
+        <div class="camera">
+            <a href="camera.html">กล้อง</a>
+        </div>
+        <div class="len">
+            <a href="len.html">เลนส์</a>
+        </div>
+        <div class="tripod">
+            <a href="tripod.html">ขาตั้งกล้อง</a>
+        </div>
+        <div class="battery">
+            <a href="battery.html">แบตเตอรี่</a>
+        </div>
+    </div>
+    
+    <div class="box4">
+        <div class="content">
+            <h1>กรุณาจองคิวล่วงหน้าผ่านเว็บเท่านั้น ไม่รับ Walk-In ครับ</h1>
+        </div>
+    </div>
+
+    <div class="box5">
+        <div class="info">
+            <h1>รายการสั่งจองทั้งหมด</h1>
+            <!-- <p>กรณีโอนเงินกรุณาโอนเงินก่อนถึงวันที่ทำการสั่งจอง</p> -->
+        </div>
+    </div>
+    <!-- <hr class="line1">
+    <div class="info2">
+        <p>Brands</p>
+    </div>
+    <a href="#" style="display: inline-block; width: 65px; height: 35px; text-align: center; font-family: 'Prompt'; font-size: 20px; background-color: rgba(2, 2, 2, 0.104); line-height: 35px; flex-direction: column; justify-content: center; margin-left: 35.85%; margin-top:8px; text-decoration: none; color:black;">Sony</a>
+    <a href="#" style="display: inline-block; width: 75px; height: 35px; text-align: center; font-family: 'Prompt'; font-size: 20px; background-color: rgba(2, 2, 2, 0.104); line-height: 35px; flex-direction: column; justify-content: center; margin-left: 30px; margin-top:8px; text-decoration: none; color:black;">Canon</a>
+    <a href="#" style="display: inline-block; width: 85px; height: 35px; text-align: center; font-family: 'Prompt'; font-size: 20px; background-color: rgba(2, 2, 2, 0.104); line-height: 35px; flex-direction: column; justify-content: center; margin-left: 30px; margin-top:8px; text-decoration: none; color:black;">Fujifilm</a>
+    <a href="#" style="display: inline-block; width: 96px; height: 35px; text-align: center; font-family: 'Prompt'; font-size: 20px; background-color: rgba(2, 2, 2, 0.104); line-height: 35px; flex-direction: column; justify-content: center; margin-left: 30px; margin-top:8px; text-decoration: none; color:black;">Manfrotto</a>
+    <a href="#" style="display: inline-block; width: 73px; height: 35px; text-align: center; font-family: 'Prompt'; font-size: 20px; background-color: rgba(2, 2, 2, 0.104); line-height: 35px; flex-direction: column; justify-content: center; margin-left: 30px; margin-top:8px; text-decoration: none; color:black;">Zomei</a>
+    <hr class="line2"> -->
+    
+    <div id="order-container" style="display: grid; grid-template-columns: repeat(2, 1fr);">
+        <div class="column1" style="margin-left: 10%; margin-right: 5%;">
+            <button id="undis_order" class="undis_order" style="font-weight: bold;">รอการชำระเงิน 0 รายการ</button>
+            <div id="show_order"></div>
+        </div>
+        <div class="column2" style="margin-left: 5%; margin-right: 10%;">
+            <button id="paid_order" class="paid_order" style="font-weight: bold;">ชำระเงินเรียบร้อย</button>
+            <div id="show_paid_order"></div>
+        </div>
+    </div>
+        
+    <!-- Popup container -->
+    <div id="popupContainer" class="popupContainer">
+        <!-- Popup content -->
+        <div id="popupContent" class="popupContent">
+            <!-- Popup content goes here -->
+            <!-- You can put the content you want to display in the popup here -->
+            <h1 style="font-family: 'Prompt';">เงื่อนไขและสัญญาในการปล่อยเช่า</h1>
+            <p>- ผู้ให้เช่าจะต้องมีอายุ 18 ปีบริบูรณ์ขึ้นไป</p>
+            <p>- ผู้ให้เช่าต้องฝากอุปกรณ์ไว้กับทางร้านไม่ว่าจะเป็นการนำมาฝากทางหน้าร้านหรือการ</p>
+            <p>ส่งทางออนไลน์ก็ได้แต่ หากพัสดุเสียหายจากการจัดส่งทางร้านจะไม่มีการรับผิดชอบใดๆ</p>
+            <p>- การฝากอุปกรณ์ต้องแสดงบัตรประชาชนทุกครั้ง</p>
+            <p>- ผู้ให้เช่าจะได้รับรายได้จากการปล่อยเช่า 90% และจะต้องให้ทางร้าน 10%</p>
+            <p>- หากอุปกรณ์ได้รับความเสียหายจากทางร้าน ทางร้านจะชดเชยค่าอุปกรณ์เต็มจำนวน</p>
+            <p>หากอุปกรณ์ได้รับความเสียหายทางผู้เช่า ผู้เช่าต้องเป็นคนจ่ายค่าเสียหายให้กับผู้ให้เช่า</p>
+        
+            <h1 style="font-family: 'Prompt';">เงื่อนไขและสัญญาในการเช่า</h1>
+            <p>- ผู้เช่าจะต้องมีอายุ 18 ปีบริบูรณ์ขึ้นไป</p>
+            <p>- ผู้เช่าต้องมารับอุปกรณ์หน้าร้านด้วยตัวเองทุกครั้ง</p>
+            <p>- แสดงบัตรประชาชนตัวจริงทุกครั้งที่รับอุปกรณ์</p>
+            <p>- สามารถฝากผู้อื่นคืนอุปกรณ์ได้</p>
+            <p>- ต้องชำระค่าเช่าทั้งหมดในวันรับของ</p>
+            <p>- กรณียกเลิก/เปลี่ยนแปลง 48 ชั่วโมงก่อนเวลารับอุปกรณ์ปรับ 30% ของค่าเช่า</p>
+            <p>- กรณีคืนอุปกรณ์ไม่ตรงตามกำหนดต้องแจ้งทางร้านล่วงหน้าก่อนกำหนด</p>
+            <p>และต้องรับผิดชอบค่าเช่าและค่าเช่าของลูกค้าท่านต่อไปกรณีที่มีคิวจองต่อ</p>
+            <p style="text-decoration: underline;">หากไม่ได้แจ้งล่วงหน้า คิดค่าปรับสูงสุดวันละ 5 เท่า</p>
+            <p style="font-weight: bold;">ทางร้านขอสงวนสิทธ์ในการเรียกหลักประกันเพิ่มเติมได้ตามความเหมาะสม</p>
+            <p style="font-weight: bold;">และขอสงวนสิทธิ์การให้เช่าหากไม่เป็นไปตามเงื่อนไข</p><br>
+            <button class="agree_butt">ยินยอม</button>
+            <button class="not_agree_butt"onclick="closePopup()">ไม่ยินยอม</button>
+        </div>
+    </div>
+    
+
+    <div class="box9">
+        <h1>ขั้นตอนในการเช่าอุปกรณ์ถ่ายภาพ</h1>
+        <h2>รายละเอียดขั้นตอนการจอง และหลักประกันในการเช่า</h2>
+    </div><br>
+
+    <div class="box10">
+        <div class="method">
+            <h1>1</h1>
+            <h3>เลือกวันยืม-คืน</h3>
+            <p>ในหน้าอุปกรณ์ที่ต้องการ</p>
+            <p>ระบุวันเวลาที่ต้องการยืม-คืน</p>
+            <p>จะปรากฎค่าเช่า และค่าประกัน</p>
+        </div>
+        <div class="method">
+            <h1>2</h1>
+            <h3>จองผ่านเว็บไซต์</h3>
+            <p>เลือกรายการอุปกรณ์</p>
+            <p>และวันเวลาที่ต้องการยืม</p>
+            <p>แล้วทำการจองผ่านระบบ</p>
+        </div>
+        <div class="method">
+            <h1>3</h1>
+            <h3>ยืนยันและรับอุปกรณ์</h3>
+            <p>รอเจ้าหน้าที่ติดต่อกลับ</p>
+            <p>เพื่อยืนยันการจอง</p>
+            <p>รับอุปกรณ์ตามวันเวลานัด</p>
+        </div>
+    </div><br>
+
+    <div class="box11">
+        <h1>ติดต่อสอบถามข้อมูล</h1><br>
+        <button><a href="tel:062279XXXX">โทร 062-279XXXX</a></button><br><br>
+        <div class="contact">
+            <a href="https://shorturl.at/ozLS6">
+                <img src="../image/white-pin.svg" height="18" alt="สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง">สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+            </a> &nbsp; &nbsp;
+            <a href="https://line.me/ti/p/srMrHo_K_a">
+                <img src="../image/white-line.svg" height="18" alt="@THAMMERA">@THAMMERA
+            </a>
+        </div>
+    </div>
+
+    <div class="box12">
+        <div class="copyright">
+            COPYRIGHT 2024 <span class="copyright-symbol">©</span> THAMMERA.COM
+          </div>          
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="../js/order.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        
+
+    </script>
+</body>
+</html>
