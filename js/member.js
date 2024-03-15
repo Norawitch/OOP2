@@ -111,8 +111,35 @@ function getCustomer(email, password) {
         console.error('Error:', error);
         // Handle errors
         showPopup(error.message || "Error occurred");
+        alert()
     });
 }
+
+function newRegister(name, tel, address, email, password) {
+    fetch("http://127.0.0.1:8000/register", {
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            name: name,
+            tel: tel,
+            address: address,
+            email: email,
+            password: password
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.data);
+        window.location.href = 'main.html'
+    })
+    .catch(error => {
+        console.error('Registration Error:', error);
+        alert('An error occurred during registration. Please try again later.');
+    }); 
+}
+
 
 document.addEventListener('DOMContentLoaded', function() {
     // Get the login button
@@ -131,6 +158,31 @@ document.addEventListener('DOMContentLoaded', function() {
         getCustomer(email, password);
         location.reload();
     });
+
+    const registerButton = document.getElementById('register');
+    registerButton.addEventListener('click', function() {
+    const name = document.getElementById('regis_name').value;
+    const tel = document.getElementById('regis_telephone').value;
+    const address = document.getElementById('regis_address').value;
+    const email = document.getElementById('regis_email').value;
+    const password = document.getElementById('regis_password').value;
+    const re_password = document.getElementById('re_regis_password').value;
+
+    // Check if any field is empty
+    if (name === '' || tel === '' || address === '' || email === '' || password === '' || re_password === '') {
+        alert("Please fill all the fields.");
+        return; // Exit the function if any field is empty
+    }
+
+    // Check if password matches re-entered password
+    if (password !== re_password) {
+        alert("Passwords do not match.");
+        return; // Exit the function if passwords don't match
+    }
+
+    // If all checks pass, proceed with registration
+    newRegister(name, tel, address, email, password);
+});
 });
 
 // Function to show the popup with animation
@@ -170,8 +222,3 @@ function closePopupPrivacy() {
         popupContainer.style.display = 'block'; // Show the popup
     }
 }
-
-
-
-
-
