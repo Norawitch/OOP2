@@ -60,10 +60,3 @@ function openLogout() {
         popupLogout.style.display = 'none';
     }
 }
-
-
-
-
-
-
-
