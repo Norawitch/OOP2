@@ -106,16 +106,15 @@ function populateAccessoryDetails(accessories) {
 
 function showOrder(orders) {
     var order_array = orders.data;
-    const popup = document.getElementById('show_order');
+    const popup1 = document.getElementById('show_order'); // First column
+    const popup2 = document.getElementById('show_paid_order'); // Second column
 
     if (Array.isArray(order_array) && order_array.length > 0) {
         
         let undis_order_count = order_array.length;
         
         order_array.forEach(order => {
-            if(order.status === "undischarged"){
-                
-                // Create a container for each order
+            // Create a container for each order
             const orderContainer = document.createElement('div');
             orderContainer.className = 'order-container';
             orderContainer.style.background = '#fff'; // Background color of the card
@@ -172,58 +171,87 @@ function showOrder(orders) {
                 listItem.appendChild(ass_lenter);
                 listItem.appendChild(ass_date);
                 accessoryList.appendChild(listItem);
+
+                // Append the accessory list to the order container
+                orderContainer.appendChild(accessoryList);
             });
 
-            // Create pay button
-            const payButton = document.createElement('button');
-            payButton.className = "pay_order";
-            payButton.textContent = "ชำระเงิน";
+
             
             
-            // Create a cancel button
-            const cancelButton = document.createElement('button');
-            cancelButton.className = "cancel_order";
-            cancelButton.textContent = "ยกเลิก";
+            // Append the order container to the appropriate column based on the order status
+            if (order.status === "undischarged") {
+                // Create pay button
+                const payButton = document.createElement('button');
+                payButton.className = "pay_order";
+                payButton.textContent = "ชำระเงิน";
+            
+            
+                // Create a cancel button
+                const cancelButton = document.createElement('button');
+                cancelButton.className = "cancel_order";
+                cancelButton.textContent = "ยกเลิก";
 
 
-            // Append the accessory list to the order container
-            orderContainer.appendChild(accessoryList);
-            const button = document.createElement('div');
-            button.style.margin = "10px";
-            button.appendChild(payButton)
-            button.appendChild(cancelButton)
-            orderContainer.appendChild(button);
-
-            // Add event listener to the pay button
-            payButton.addEventListener('click', function() {
-                payButton.disabled = true;
-                showPopup(order['order_id']);
                 
-            });
+                const button = document.createElement('div');
+                button.style.margin = "10px";
+                button.appendChild(payButton)
+                button.appendChild(cancelButton)
+                orderContainer.appendChild(button);
 
-            // Add event listener to the cancel button
-            cancelButton.addEventListener('click', function() {
+                // Add event listener to the pay button
+                payButton.addEventListener('click', function() {
+                    payButton.disabled = true;
+                    showPopup(order['order_id']);
+                });
+
+                // Add event listener to the cancel button
+                cancelButton.addEventListener('click', function() {
                 cancelButton.disabled = true;
                 cancelOrder(order['order_id']); // Pass the cancel button to the cancelOrder function
                 // Remove the order container from the DOM
                 orderContainer.remove();
+                
                 location.reload();
             });
+                popup1.appendChild(orderContainer); // Append to first column
+            } else if (order.status === "Paid") {
+                
+                popup2.appendChild(orderContainer); // Append to second column
+
+            }
             
-            // Append the order container to the popup
-            popup.appendChild(orderContainer);
+            // Decrement undis_order_count only for undischarged orders
+            if (order.status === "Paid" || order.status === "canceled") {
+                undis_order_count -= 1;
             }
-            else{
-                console.log(order.status)
-                undis_order_count -= 1
-            }
-            show_undis_order(undis_order_count)
         });
+
+        show_undis_order(undis_order_count);
+        
     } else {
         console.error('Orders array is either not an array or empty:', order_array);
     }
 
 }
+document.addEventListener('DOMContentLoaded', function() {
+    const undis_order = document.getElementById('undis_order');
+    const paid_order = document.getElementById('paid_order');
+
+    const ordersContainer = document.querySelector('.column1 #show_order');
+    const paidOrdersContainer = document.querySelector('.column2 #show_paid_order');
+
+    undis_order.addEventListener('click', function() {
+        // Toggle the visibility of all order containers in the first column
+        ordersContainer.classList.toggle('hidden');
+    });
+
+    paid_order.addEventListener('click', function() {
+        // Toggle the visibility of all paid order containers in the second column
+        paidOrdersContainer.classList.toggle('hidden');
+    });
+});
 
 function showConfirmedOrder() {
     fetch("http://127.0.0.1:8000/check_status_confirmed_order", {
@@ -338,10 +366,19 @@ document.addEventListener('DOMContentLoaded', function() {
             order.classList.toggle('hidden');
         });
     });
+    
+    const paid_order = document.getElementById('paid_order');
+    const ordersContainerPaid = document.getElementById('paid_order');
+    undis_order.addEventListener('click', function() {
+        // Toggle the visibility of all order containers
+        const orders = ordersContainerPaid.querySelectorAll('.order-container');
+        orders.forEach(order => {
+            order.classList.toggle('hidden');
+        });
+    });
+
 });
 
 document.addEventListener('DOMContentLoaded', function() {
     showConfirmedOrder();
 });
-
-
