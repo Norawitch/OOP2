@@ -122,9 +122,9 @@ Website.add_account(customer3)
 
 
 #ADD_CART
-cart1 = Cart("001")
-cart2 = Cart("002")
-cart3 = Cart("003")
+cart1 = Cart("1001")
+cart2 = Cart("1002")
+cart3 = Cart("1003")
 customer1.add_cart(cart1)
 customer2.add_cart(cart2)
 customer3.add_cart(cart3)
