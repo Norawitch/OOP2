@@ -11,7 +11,9 @@ class System:
         self.__order_id_counter = 0
         self.__payment_id_counter = 0
         self.__customer_id_counter = 0
+        self.__cart_id_counter = 0
         self.__account_counter = "10003"
+        self.__cart_counter = "1003"
 
     def get_list_account(self):
         return self.__list_account
@@ -31,10 +33,16 @@ class System:
     def add_account(self, customer):
         self.__list_account.append(customer)
         self.__order_id_counter += 1
-        self.__account_counter = int(self.__account_counter) + 1
+        self.__customer_id_counter += 1
+        self.__cart_id_counter += 1
+        self.__account_counter = int(self.__account_counter) + self.__customer_id_counter
         self.__account_counter = str(self.__account_counter)
         customer.edit_customer_id(self.__customer_id_counter)
         customer.edit_acc_id(self.__account_counter)
+        self.__cart_counter = int(self.cart_counter) + self.__cart_id_counter
+        self.__cart_counter = str(self.__cart_counter)
+        cart = Cart(self.__cart_counter)
+        customer.add_cart(cart)
     
     def add_category(self , category):
         self.__list_category.append(category)
